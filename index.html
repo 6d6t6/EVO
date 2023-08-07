@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>EVO [v1.0.5]</title>
+    <title>Voice Assistant</title>
     <style>
         body {
             background-color: #1a1a1a;
@@ -93,6 +93,7 @@
             <option value="duckduckgo">DuckDuckGo</option>
             <option value="ecosia">Ecosia</option>
             <option value="qwant">Qwant</option>
+            <option value="dogpile">Dogpile</option>
             <option value="aol">AOL</option>
             <option value="lycos">Lycos</option>
             <option value="ask.com">Ask.com</option>
@@ -185,6 +186,9 @@
                     break;
                 case 'qwant':
                     searchUrl = `https://www.qwant.com/?q=${encodeURIComponent(query)}`;
+                    break;
+                case 'dogpile':
+                    searchUrl = `https://www.dogpile.com/serp?q=${encodeURIComponent(query)}`;
                     break;
                 case 'aol':
                     searchUrl = `https://search.aol.com/aol/search?q=${encodeURIComponent(query)}`;
