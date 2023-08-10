@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Voice Assistant</title>
+    <title>EVO [v1.0.3]</title>
     <style>
         body {
             background-color: #1a1a1a;
             color: #ffffff;
-            font-family: Arial, sans-serif;
+            font-family: 'Lexend Deca', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
         #button {
             position: fixed;
@@ -49,10 +51,11 @@
         }
         #settings-icon {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            font-size: 24px;
+            bottom: 28px;
+            right: 36px;
+            font-size: 32px;
             cursor: pointer;
+            font-family: 'Material Icons', sans-serif;
         }
         #settings-modal {
             display: none;
@@ -65,27 +68,63 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
+        /* Additional styles for the settings modal */
+        #settings-modal h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        #settings-modal label {
+            display: block;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        #settings-modal input[type="text"],
+        #settings-modal input[type="date"],
+        #settings-modal select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: 'Lexend Deca', Arial, sans-serif;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        #settings-modal button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        #settings-modal button:hover {
+            background-color: #45a049;
+        }
     </style>
+    <!-- Include Google Fonts and Material Icons links -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend+Deca">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
     <div id="button"></div>
     <div id="chat"></div>
-    <div id="settings-icon">⚙️</div>
+    <div id="settings-icon" class="material-icons">settings</div>
     <div id="settings-modal">
         <h2>SETTINGS</h2>
-        <label for="username">👤</label>
+        <label for="username">NAME</label>
         <input type="text" id="username" placeholder="Enter your name">
         <br>
-        <label for="birthday">🎂</label>
+        <label for="birthday">BIRTHDAY</label>
         <input type="date" id="birthday">
         <br>
-        <label for="weather">🌤</label>
+        <label for="weather">WEATHER</label>
         <select id="weather">
             <option value="C">Celsius</option>
             <option value="F">Fahrenheit</option>
         </select>
         <br>
-        <label for="searchEngine">🔍</label>
+        <label for="searchEngine">SEARCH ENGINE</label>
         <select id="searchEngine">
             <option value="google">Google</option>
             <option value="bing">Bing</option>
@@ -100,7 +139,7 @@
             <!-- Add more options as needed -->
         </select>
         <br>
-        <label for="autoReady">🗣</label>
+        <label for="autoReady">AUTO-READY MODE (!!UNSTABLE!!)</label>
         <input type="checkbox" id="autoReady">
         <br>
         <button id="saveSettings">Save</button>
