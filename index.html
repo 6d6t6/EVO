@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>EVO [v1.0.7]</title>
+    <title>EVO [v1.0.8]</title>
     <style>
         body {
             background-color: #1a1a1a;
@@ -11,16 +11,16 @@
             padding: 0;
         }
         h2 {
-            margin-block-start: 0em;
-        }
+    		margin-block-start: 0em;
+		}
         #button {
             position: fixed;
-            bottom: 20px;
+            bottom: 3.5vh;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
+            width: 10vh;
+            height: 10vh;
+            border-radius: 100%;
             background-color: #ffffff;
             cursor: pointer;
         }
@@ -40,7 +40,7 @@
             margin-bottom: 32px;
             opacity: 0;
             animation: fadeIn 0s forwards;
-            font-size: 3em;
+            font-size: 3vh;
         }
         .user {
             text-align: right;
@@ -56,9 +56,9 @@
         }
         #settings-icon {
             position: fixed;
-            bottom: 28px;
-            right: 36px;
-            font-size: 32px;
+            bottom: 5vh;
+            right: 5vh;
+            font-size: 5vh;
             cursor: pointer;
             font-family: 'Material Icons', sans-serif;
         }
@@ -68,19 +68,19 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 300px;
+            width: 50vh;
             padding: 20px;
             background-color: #232323;
-            border-radius: 10px;
+            border-radius: 2vh;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
         #settings-modal h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
+            font-size: 3.5vh;
+            margin-bottom: 1vh;
         }
         #settings-modal label {
             display: block;
-            font-size: 14px;
+            font-size: 2vh;
             margin-top: 10px;
         }
         #settings-modal input[type="text"],
@@ -89,9 +89,9 @@
             width: 100%;
             padding: 8px;
             border: 1px solid #ccc;
-            border-radius: 8px;
+            border-radius: 1vh;
             font-family: 'Lexend Deca', Arial, sans-serif;
-            font-size: 14px;
+            font-size: 3vh;
             margin-top: 5px;
             box-sizing: border-box;
         }
@@ -101,13 +101,13 @@
             color: white;
             padding: 10px 15px;
             border: none;
-            border-radius: 8px;
+            border-radius: 1vh;
             font-family: 'Lexend Deca', Arial, sans-serif;
             text-transform: uppercase;
-            font-size: 16px;
+            font-size: 3vh;
             cursor: pointer;
             display: block;
-            margin-top: 15px;
+    		margin-top: 15px;
         }
         #settings-modal button:hover {
             background-color: #55b059;
