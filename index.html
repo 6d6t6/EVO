@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>EVO [v1.0.4]</title>
+    <title>EVO [v1.0.7]</title>
     <style>
         body {
             background-color: #1a1a1a;
@@ -37,12 +37,14 @@
             overflow: auto;
         }
         #chat div {
-            margin-bottom: 10px;
+            margin-bottom: 32px;
             opacity: 0;
-            animation: fadeIn 0.5s forwards;
+            animation: fadeIn 0s forwards;
+            font-size: 3em;
         }
         .user {
             text-align: right;
+            color: #ffffff50;
         }
         .assistant {
             text-align: left;
@@ -333,7 +335,7 @@
                 speak(quotient);
             } else if (text.includes('joke')) {
                 // Fetch a random joke from an API (e.g., JokeAPI)
-                fetch('https://v2.jokeapi.dev/joke/Miscellaneous,Pun?blacklistFlags=nsfw,religious,political,racist,sexist,explicit')
+                fetch('https://v2.jokeapi.dev/joke/Miscellaneous,Pun?safe-mode')
                     .then(response => response.json())
                     .then(data => {
                         const joke = data.type === 'twopart' ? `${data.setup} ${data.delivery}` : data.joke;
