@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>EVO [v1.0.4]</title>
+    <title>EVO [v1.0.5]</title>
     <style>
+        /* Common styles for all device sizes */
         body {
             background-color: #1a1a1a;
             color: #ffffff;
@@ -109,6 +110,39 @@
         }
         #settings-modal button:hover {
             background-color: #55b059;
+        }
+
+        /* Mobile styles (up to 768px) */
+        @media screen and (max-width: 768px) {
+            /* Adjust sizes, margins, or any other styles to fit smaller screens */
+            #button {
+                width: 40px;
+                height: 40px;
+                bottom: 10px;
+            }
+            /* ... (other responsive styles for mobile) ... */
+        }
+
+        /* Tablet styles (769px to 1024px) */
+        @media screen and (min-width: 769px) and (max-width: 1024px) {
+            /* Adjust sizes, margins, or any other styles to fit tablet screens */
+            #button {
+                width: 50px;
+                height: 50px;
+                bottom: 15px;
+            }
+            /* ... (other responsive styles for tablets) ... */
+        }
+
+        /* Larger screen styles (1025px and above) */
+        @media screen and (min-width: 1025px) {
+            /* Adjust sizes, margins, or any other styles to fit larger screens */
+            #button {
+                width: 60px;
+                height: 60px;
+                bottom: 20px;
+            }
+            /* ... (other responsive styles for larger screens) ... */
         }
     </style>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend+Deca">
