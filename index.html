@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>EVO [v1.0.9]</title>
+    <title>EVO [v1.1.0]</title>
     <style>
         body {
             background-color: #1a1a1a;
@@ -290,6 +290,10 @@
             document.getElementById('weather').value = weatherPreference || 'C';
             document.getElementById('searchEngine').value = searchEnginePreference || 'google';
             document.getElementById('autoReady').checked = autoReadyMode;
+
+            if (!autoReadyMode) {
+                recognition.start();
+            }
         });
 
         recognition.onresult = (event) => {
@@ -394,7 +398,6 @@
             scrollToBottom();
         };
 
-        // Function to speak a message using text-to-speech
         function speak(message) {
             const utterance = new SpeechSynthesisUtterance(message);
             utterance.pitch = 1.1;
