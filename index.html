@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>EVO [v1.1.0]</title>
+    <title>EVO [v1.1.2]</title>
     <style>
         body {
             background-color: #1a1a1a;
@@ -166,14 +166,14 @@
         }
 
         const button = document.getElementById('button');
-
-        button.addEventListener('click', () => {
+        
+        function startRecognition() {
             recognition.start();
-        });
+        }
 
-        button.addEventListener('touchstart', () => {
-            recognition.start();
-        });
+        button.addEventListener('click', startRecognition);
+
+        button.addEventListener('touchstart', startRecognition);
 
 
         function getWeatherWithPreferredUnit(latitude, longitude) {
