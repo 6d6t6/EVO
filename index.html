@@ -167,28 +167,30 @@
 
         const button = document.getElementById('button');
         
-        function checkMicrophonePermission() {
-            return new Promise((resolve, reject) => {
-                navigator.permissions.query({ name: 'microphone' }).then(permissionStatus => {
-                    if (permissionStatus.state === 'granted') {
-                        resolve(true);
-                    } else if (permissionStatus.state === 'prompt') {
-                        resolve(permissionStatus);
-                    } else {
-                        resolve(false);
+        async function checkAndRequestMicrophonePermission() {
+            try {
+                const permissionStatus = await navigator.permissions.query({ name: 'microphone' });
+                if (permissionStatus.state === 'granted') {
+                    return true;
+                } else if (permissionStatus.state === 'prompt') {
+                    const result = await navigator.mediaDevices.getUserMedia({ audio: true });
+                    if (result) {
+                        return true;
                     }
-                }).catch(error => {
-                    reject(error);
-                });
-            });
+                }
+                return false;
+            } catch (error) {
+                console.error('Error checking microphone permission:', error);
+                return false;
+            }
         }
 
         async function startRecognition() {
-            const hasMicrophonePermission = await checkMicrophonePermission();
+            const hasMicrophonePermission = await checkAndRequestMicrophonePermission();
 
-            if (hasMicrophonePermission === true || (hasMicrophonePermission instanceof PermissionStatus && hasMicrophonePermission.state === 'prompt')) {
+            if (hasMicrophonePermission) {
                 recognition.start();
-            } else if (hasMicrophonePermission === false) {
+            } else {
                 chat.innerHTML += `<div class="assistant">Microphone permission is required to use voice recognition.</div>`;
                 scrollToBottom();
             }
