@@ -152,16 +152,12 @@
             <!-- Add more options as needed -->
         </select>
         <br>
-        <label for="autoReady">AUTO-READY MODE (!!UNSTABLE!!)</label>
-        <input type="checkbox" id="autoReady">
-        <br>
         <button id="saveSettings">Save</button>
     </div>
 
     <script>
         const recognition = new webkitSpeechRecognition();
         recognition.lang = 'en-US';
-        let autoReadyMode = false;
 
         const chat = document.getElementById('chat');
 
@@ -169,18 +165,16 @@
             chat.scrollTop = chat.scrollHeight;
         }
 
-        document.getElementById('button').addEventListener('click', () => {
-            if (!autoReadyMode) {
-                recognition.start();
-                document.getElementById('button').classList.add('active');
-            }
+        const button = document.getElementById('button');
+
+        button.addEventListener('click', () => {
+            recognition.start();
         });
 
-        recognition.onstart = () => {
-            if (autoReadyMode) {
-                recognition.stop();
-            }
-        };
+        button.addEventListener('touchstart', () => {
+            recognition.start();
+        });
+
 
         function getWeatherWithPreferredUnit(latitude, longitude) {
             const weatherPreference = localStorage.getItem('weatherPreference');
@@ -272,9 +266,6 @@
             const searchEnginePreference = document.getElementById('searchEngine').value;
             localStorage.setItem('searchEnginePreference', searchEnginePreference);
 
-            autoReadyMode = document.getElementById('autoReady').checked;
-            localStorage.setItem('autoReadyMode', autoReadyMode);
-
             document.getElementById('settings-modal').style.display = 'none';
         });
 
@@ -283,17 +274,12 @@
             const birthday = localStorage.getItem('birthday');
             const weatherPreference = localStorage.getItem('weatherPreference');
             const searchEnginePreference = localStorage.getItem('searchEnginePreference');
-            autoReadyMode = localStorage.getItem('autoReadyMode') === 'true';
 
             document.getElementById('username').value = username || '';
             document.getElementById('birthday').value = birthday || '';
             document.getElementById('weather').value = weatherPreference || 'C';
             document.getElementById('searchEngine').value = searchEnginePreference || 'google';
-            document.getElementById('autoReady').checked = autoReadyMode;
 
-            if (!autoReadyMode) {
-                recognition.start();
-            }
         });
 
         recognition.onresult = (event) => {
